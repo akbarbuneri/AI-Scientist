@@ -19,3 +19,6 @@ tqdm
 fastapi
 uvicorn
 sqlalchemy
+aiosqlite
+python-multipart
+jinja2
