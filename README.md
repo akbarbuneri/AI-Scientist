@@ -388,6 +388,25 @@ docker run -it -e OPENAI_API_KEY=$OPENAI_API_KEY \
   <AI_SCIENTIST_IMAGE>
 ```
 
+## Web Interface
+
+A simple FastAPI web interface is provided in `web_app/`. You can build an image
+with the web server enabled using the separate Dockerfile:
+
+```bash
+docker build -f experimental/Dockerfile.web -t ai-scientist-web .
+```
+
+Run the container and expose the port to your host:
+
+```bash
+docker run -p 8000:8000 -e OPENAI_API_KEY=$OPENAI_API_KEY ai-scientist-web
+```
+
+The UI lets you start new runs, upload template files and monitor results. API
+keys are supplied as environment variables in the same way as for the command
+line interface.
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=SakanaAI/AI-Scientist&type=Date)](https://star-history.com/#SakanaAI/AI-Scientist&Date)

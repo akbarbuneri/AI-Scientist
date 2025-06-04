@@ -16,3 +16,6 @@ datasets
 tiktoken
 wandb
 tqdm
+fastapi
+uvicorn
+sqlalchemy

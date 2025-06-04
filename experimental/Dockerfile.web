@@ -1,0 +1,16 @@
+FROM python:3.11-bullseye
+
+ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends texlive-full && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt
+
+COPY . /app/AI-Scientist
+WORKDIR /app/AI-Scientist
+
+EXPOSE 8000
+CMD ["uvicorn", "web_app.app:app", "--host", "0.0.0.0", "--port", "8000"]
+
