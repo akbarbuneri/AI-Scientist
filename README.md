@@ -391,3 +391,14 @@ docker run -it -e OPENAI_API_KEY=$OPENAI_API_KEY \
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=SakanaAI/AI-Scientist&type=Date)](https://star-history.com/#SakanaAI/AI-Scientist&Date)
+
+## Web Interface
+A minimal FastAPI server is provided under `web_app/`. Build the Docker image and run it to access a browser-based interface:
+
+```bash
+docker build -f web_app/Dockerfile -t ai-scientist-web .
+docker run -p 8000:8000 -e OPENAI_API_KEY=$OPENAI_API_KEY ai-scientist-web
+```
+
+Open `http://localhost:8000/docs` to access the API documentation.
+
