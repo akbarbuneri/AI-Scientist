@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Run {{ run.id }}</title>
+</head>
+<body>
+<h1>Run {{ run.id }}</h1>
+<p>Status: {{ run.status }}</p>
+<ul>
+{% for file in files %}
+    <li><a href="/results/{{ run.id }}/{{ file }}">{{ file }}</a></li>
+{% endfor %}
+</ul>
+<a href="/">Back</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Scientist Web</title>
+</head>
+<body>
+<h1>AI Scientist Web</h1>
+
+<h2>Start New Run</h2>
+<form action="/runs/start" method="post">
+    Model: <input type="text" name="model" value="gpt-4o-2024-05-13"><br>
+    Experiment: <input type="text" name="experiment" value="nanoGPT_lite"><br>
+    Num Ideas: <input type="number" name="num_ideas" value="1"><br>
+    <input type="submit" value="Start">
+</form>
+
+<h2>Upload Template</h2>
+<form action="/templates/upload" method="post" enctype="multipart/form-data">
+    Experiment Name: <input type="text" name="experiment"><br>
+    File: <input type="file" name="file"><br>
+    <input type="submit" value="Upload">
+</form>
+
+<h2>Runs</h2>
+<ul>
+{% for run in runs %}
+    <li><a href="/runs/{{ run.id }}">Run {{ run.id }} - {{ run.experiment }} - {{ run.status }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>
